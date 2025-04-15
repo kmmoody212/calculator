@@ -5,7 +5,6 @@ const opsButtons = document.querySelectorAll(".ops")
 const input = document.getElementById('input');
 let currentValue = ''; // variable to represent current value displayed
 let previousValue = ''; // variable that will save previous value in input field
-const operator = this.dataset.operator; // for buttons given a data-operator attribute
 
 // TO GET THE BUTTONS' "CONTENT" TO SHOW IN THE INPUT
 
@@ -20,7 +19,8 @@ opsButtons.forEach(button => {
     button.addEventListener("click", function () {
      previousValue = input.value;
      console.log(previousValue); // confirms it does display the previous value
-     
+     const operator = this.dataset.operator; // for buttons given a data-operator attribute
+
      input.value = button.textContent; // replaces input value with ops buttons
 
        
