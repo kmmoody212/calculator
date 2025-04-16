@@ -1,31 +1,41 @@
-// loop through each button and add an event listener that,
-//  when clicked, shows the number/symbol on the button as the input's value
+
 const numButtons = document.querySelectorAll(".num");
 const opsButtons = document.querySelectorAll(".ops")
 const input = document.getElementById('input');
 let currentValue = ''; // variable to represent current value displayed
 let previousValue = ''; // variable that will save previous value in input field
+let opsValue = ''; // variable to store selected operator
+let opEntered = false; // variable to help with operator visibility without appending numbers to operator
 
-// TO GET THE BUTTONS' "CONTENT" TO SHOW IN THE INPUT
+// FOR CALCULATOR "DISPLAY" >>
+// Loops through each button and adds an event listener that,
+//  when clicked, shows the number/operator on the button as the input's value
 
 numButtons.forEach(button => {
     button.addEventListener("click", function () {
-    let numValue = parseInt(button.value); // convert button value to a number
-       input.value += numValue ; // shortcut to append results, not replace
+    let numValue = button.value;
+
+    if (opEntered) {
+        input.value = ''; // set "display" to blank
+        opEntered = false; // reset opEntered to false
+    }
+
+      return input.value += numValue ; // to append results, not replace
     });
 });
 
 opsButtons.forEach(button => {
     button.addEventListener("click", function () {
-     previousValue = input.value;
-     console.log(previousValue); // confirms it does display the previous value
-     const operator = this.dataset.operator; // for buttons given a data-operator attribute
-
-     input.value = button.textContent; // replaces input value with ops buttons
-
+    // save current input in a variable (previousValue)
+     previousValue = parseFloat(input.value); // convert input value from str to num
+     console.log(previousValue); // test to confirm it does store the previous value
+     // input field to display operator and store in a variable (opsValue)
+     opsValue = button.value;
+     input.value = opsValue;
+     console.log(opsValue); // test to confirm it does store the operator
+     opEntered = true; // will tell the number buttons to clear display if an operator was entered
        
     });
 });
 
-// when operator is pressed, it is appended to the preivous value
 
