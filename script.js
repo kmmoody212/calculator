@@ -3,6 +3,7 @@ const numButtons = document.querySelectorAll(".num");
 const opsButtons = document.querySelectorAll(".ops")
 const input = document.getElementById('input');
 const equals = document.getElementById('equals');
+const clear = document.getElementById('clear');
 let previousValue = ''; // variable that will save previous value in input field
 let opsValue = ''; // variable to store selected operator
 let opEntered = false; // variable to help with operator visibility without appending numbers to operator
@@ -83,4 +84,7 @@ equals.addEventListener("click", () => {
 })
 
 // /////////////////// CLEAR BUTTON //////////////////////
+clear.addEventListener("click", () => {
+    return input.value = input.defaultValue;
 
+})
