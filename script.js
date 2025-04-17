@@ -8,23 +8,24 @@ let opsValue = ''; // variable to store selected operator
 let opEntered = false; // variable to help with operator visibility without appending numbers to operator
 let firstNum = '';
 let operator = '';
+let currentNum = '';
 let firstNumEntered = false;
+let sum = 0;
 
 // CALCULATOR FUNCTION
 function operate(firstNum, operator, secondNum){
-    let sum = 0;
     if (operator === "+") {
-        sum = firstNum + secondNum;
-        return console.log(sum);
+        sum = parseFloat(firstNum + secondNum);
+        return sum;
     } else if (operator === "-") {
-        sum = firstNum - secondNum;
-        return console.log(sum);
+        sum = parseFloat(firstNum - secondNum);
+        return sum;
     } else if (operator === "*") {
-        sum = firstNum * secondNum;
-        return console.log(sum);
+        sum = parseFloat(firstNum * secondNum);
+        return sum;
     } else if (operator === "/") {
-        sum = firstNum / secondNum;
-        return console.log(sum);
+        sum = parseFloat(firstNum / secondNum);
+        return sum;;
     }
 
 }
@@ -64,17 +65,22 @@ opsButtons.forEach(button => {
     //  console.log(opsValue); // test to confirm it does store the operator
      opEntered = true; // will tell the number buttons to clear display if an operator was entered
 
-       if (firstNumEntered) {
-            return operate(firstNum, operator, previousValue)
-        }
+       
 
     //    console.log(previousValue); // test to confirm it does store the previous value  
     });
 });
 
+// /////////////////// EQUALS BUTTON /////////////////////
+equals.addEventListener("click", () => {
+    currentNum = parseFloat(input.value);
+    opEntered = true;
+    
+    if (firstNumEntered) {
+        let result = (input.value = operate(previousValue, operator, currentNum));
+        return result;
+    }
+})
 
-
-// equals.addEventListener("click", () => {
-
-// })
+// /////////////////// CLEAR BUTTON //////////////////////
 
