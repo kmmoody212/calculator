@@ -56,18 +56,20 @@ numButtons.forEach(button => {
 // //////////////////// OPERATOR BUTTONS //////////////////
 opsButtons.forEach(button => {
     button.addEventListener("click", function () {
+
+        if (input.value === "") {
+            previousValue = 0;
+        } else {// save current input in a variable (previousValue)
+        previousValue = parseFloat(input.value); // convert input value from str to num
+        }
         
-    // save current input in a variable (previousValue)
-     previousValue = parseFloat(input.value); // convert input value from str to num
+    
    
      // input field to display operator and store in a variable (opsValue)
      opsValue = button.value;
      input.value = opsValue;
     //  console.log(opsValue); // test to confirm it does store the operator
      opEntered = true; // will tell the number buttons to clear display if an operator was entered
-
-       
-
     //    console.log(previousValue); // test to confirm it does store the previous value  
     });
 });
