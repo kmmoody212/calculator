@@ -53,6 +53,7 @@ button {
 }
 
 input {
+    box-sizing: border-box;
     height: 100px;
     width: 320px;
     font-size: 3rem;
@@ -62,6 +63,8 @@ input {
     margin-top: 12px;
     border: 2px solid rgba(60, 60, 60, 0.616);
     border-radius: 8px;
-    
+}
 
+input.smaller-text {
+    font-size: 1.25rem;
 }
