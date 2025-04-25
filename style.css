@@ -55,7 +55,7 @@ button {
 input {
     box-sizing: border-box;
     height: 100px;
-    width: 320px;
+    width: 100%;
     font-size: 3rem;
     text-align: end;
     margin-bottom: 36px;
